@@ -1,0 +1,14 @@
+query GetProduct {
+    product {
+        id
+        recommendations {
+            id
+            ... BasketStatus @defer
+        }
+        ... BasketStatus @defer
+    }
+}
+
+fragment BasketStatus on Query {
+    isInBasket
+}

@@ -1,0 +1,15 @@
+mutation AddProduct($input: Order_AddProductInput!) {
+    basket {
+        addProduct(input: $input) {
+            Order_AddProductPayload {
+                recordId
+                errors {}
+                query {
+                    ...Basket
+                }
+            }
+        }
+    }
+}
+
+fragment Basket on Query {}
